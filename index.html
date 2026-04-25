@@ -65,6 +65,34 @@ nav a{
   background:linear-gradient(90deg,#ffb6c1,#fff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+
+  display:inline-block;
+  position:relative;
+
+  /* 3D + neon + animation */
+  transform-style:preserve-3d;
+
+  animation:
+    popup3d 1.2s ease-out forwards,
+    floatRotate 6s linear infinite,
+    neonGlow 2.5s ease-in-out infinite;
+}
+@keyframes floatRotate{
+  0%{
+    transform:perspective(1000px) rotateY(0deg) translateY(0px);
+  }
+  25%{
+    transform:perspective(1000px) rotateY(10deg) translateY(-5px);
+  }
+  50%{
+    transform:perspective(1000px) rotateY(0deg) translateY(-10px);
+  }
+  75%{
+    transform:perspective(1000px) rotateY(-10deg) translateY(-5px);
+  }
+  100%{
+    transform:perspective(1000px) rotateY(0deg) translateY(0px);
+  }
 }
 
 .hero p{
@@ -274,7 +302,7 @@ footer{
 <!-- HERO -->
 <section class="hero">
   <div>
-    <h2>Luxury Press-On Nails 💅</h2>
+    <h2>Luxury Press-On Nails </h2>
     <p>Salon-quality nails at home — starting at just ₹299</p>
     <a href="#contact" class="btn">Shop Now</a>
   </div>
