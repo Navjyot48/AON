@@ -105,7 +105,7 @@ nav a{
   line-height:1.8;
 }
 
-/* WHY */
+/* CARDS */
 .cards{
   display:flex;
   flex-wrap:wrap;
@@ -119,47 +119,6 @@ nav a{
   background:rgba(255,182,193,0.05);
   border-radius:15px;
   border:1px solid rgba(255,182,193,0.1);
-}
-
-/* REVIEWS */
-.review{
-  max-width:600px;
-  margin:15px auto;
-  padding:15px;
-  background:rgba(255,182,193,0.08);
-  border-radius:10px;
-  font-style:italic;
-}
-
-/* REVIEW INPUT BOX */
-.review-box{
-  max-width:600px;
-  margin:auto;
-}
-
-.review-form{
-  margin-top:30px;
-}
-
-.review-form input{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:none;
-  outline:none;
-  margin-bottom:10px;
-  background:#111;
-  color:#fff;
-}
-
-.review-form button{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  background:linear-gradient(90deg,#ffb6c1,#f8c8dc);
-  font-weight:bold;
-  cursor:pointer;
 }
 
 /* OFFER */
@@ -214,6 +173,49 @@ button{
   cursor:pointer;
 }
 
+/* 🔥 REVIEW ROTATION BOX */
+.review-box{
+  max-width:600px;
+  margin:20px auto;
+  padding:25px;
+  background:rgba(255,182,193,0.08);
+  border-radius:15px;
+  min-height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.6s ease;
+}
+
+.review{
+  font-style:italic;
+  font-size:1.1rem;
+  opacity:1;
+  transition:opacity 0.6s ease;
+}
+
+/* INPUT */
+.review-form{
+  max-width:600px;
+  margin:auto;
+}
+
+.review-form input{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border-radius:10px;
+  border:none;
+  background:#111;
+  color:#fff;
+}
+
+.review-form button{
+  width:100%;
+  margin-top:10px;
+}
+
+/* FOOTER */
 footer{
   text-align:center;
   padding:30px;
@@ -240,9 +242,7 @@ footer{
   <div>
     <h2>Luxury Press-On Nails 💅</h2>
     <p>Salon-quality nails at home — starting at just ₹299</p>
-
     <a href="#contact" class="btn">Shop Now</a>
-    <a href="#contact" class="btn">Order Custom Nails</a>
   </div>
 </section>
 
@@ -250,7 +250,7 @@ footer{
 <section class="section" id="about">
   <h2>About Us</h2>
   <div class="about">
-    At ArtofNails, we create affordable, reusable and trendy press-on nails designed to match your vibe.
+    Premium handmade press-on nails designed for luxury everyday wear.
   </div>
 </section>
 
@@ -258,20 +258,19 @@ footer{
 <section class="section" id="why">
   <h2>Why Choose Us</h2>
   <div class="cards">
-    <div class="card">💅 Reusable & Long-lasting</div>
-    <div class="card">💸 Affordable (₹299+)</div>
+    <div class="card">💅 Reusable</div>
+    <div class="card">💸 Affordable</div>
     <div class="card">🎨 Custom Designs</div>
-    <div class="card">🚚 PAN India Delivery</div>
+    <div class="card">🚚 PAN India</div>
   </div>
 </section>
-
 
 <!-- OFFER -->
 <section class="section">
   <h2>🎁 Special Offers</h2>
   <div class="offer">
-    🎉 Student Offer: ₹100 OFF on First Order<br><br>
-    🎁 Free Nail Kit with Every Order
+    🎉 ₹100 OFF First Order<br><br>
+    🎁 Free Nail Kit Included
   </div>
 </section>
 
@@ -290,32 +289,26 @@ footer{
 
 <!-- ORDER -->
 <section class="section" id="contact">
-  <h2>Place Your Order</h2>
+  <h2>Place Order</h2>
 
   <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="text" placeholder="WhatsApp Number" required>
-    <textarea placeholder="Your Design Idea" required></textarea>
-    <button type="submit">Order Now</button>
+    <input type="text" placeholder="Name" required>
+    <input type="text" placeholder="WhatsApp" required>
+    <textarea placeholder="Design Idea"></textarea>
+    <button>Order Now</button>
   </form>
 </section>
 
-
-<!-- REVIEWS -->
+<!-- ⭐ REVIEWS ROTATION -->
 <section class="section" id="reviews">
   <h2>Customer Reviews</h2>
 
-  <div class="review-box" id="reviewBox">
-
-    <div class="review">“So pretty 😭💅 loved it!”</div>
-    <div class="review">“Perfect for my first nails experience”</div>
-    <div class="review">“Quality is amazing for this price!”</div>
-
+  <div class="review-box">
+    <div class="review" id="reviewText"></div>
   </div>
 
-  <!-- REAL TIME REVIEW INPUT -->
   <div class="review-form">
-    <input type="text" id="reviewInput" placeholder="Write your review... 💅">
+    <input type="text" id="newReview" placeholder="Write your review 💅">
     <button onclick="addReview()">Submit Review</button>
   </div>
 </section>
@@ -325,40 +318,41 @@ footer{
 </footer>
 
 <script>
-// LOAD SAVED REVIEWS
-let savedReviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
-const reviewBox = document.getElementById("reviewBox");
+// default reviews
+let reviews = [
+  "So pretty 😭💅 loved it!",
+  "Perfect for my first nails experience",
+  "Quality is amazing for this price!"
+];
 
-function renderReviews(){
-  reviewBox.innerHTML = `
-    <div class="review">“So pretty 😭💅 loved it!”</div>
-    <div class="review">“Perfect for my first nails experience”</div>
-    <div class="review">“Quality is amazing for this price!”</div>
-  `;
+let index = 0;
+const reviewText = document.getElementById("reviewText");
 
-  savedReviews.forEach(r=>{
-    let div = document.createElement("div");
-    div.className = "review";
-    div.textContent = r;
-    reviewBox.appendChild(div);
-  });
+// show review
+function showReview(){
+  reviewText.style.opacity = 0;
+
+  setTimeout(() => {
+    reviewText.textContent = reviews[index];
+    reviewText.style.opacity = 1;
+    index = (index + 1) % reviews.length;
+  }, 400);
 }
 
-renderReviews();
+// rotate every 3 seconds
+showReview();
+setInterval(showReview, 3000);
 
-// ADD REVIEW FUNCTION
+// add review
 function addReview(){
-  let input = document.getElementById("reviewInput");
-  let value = input.value.trim();
-
-  if(value !== ""){
-    savedReviews.push(value);
-    localStorage.setItem("reviews", JSON.stringify(savedReviews));
+  let input = document.getElementById("newReview");
+  if(input.value.trim() !== ""){
+    reviews.push(input.value);
     input.value = "";
-    renderReviews();
   }
 }
+
 </script>
 
 </body>
