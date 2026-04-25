@@ -43,11 +43,6 @@ nav a{
   color:#eee;
   margin-left:30px;
   text-decoration:none;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:#ffb6c1;
 }
 
 /* HERO */
@@ -73,93 +68,106 @@ nav a:hover{
 }
 
 .hero p{
-  max-width:600px;
+  max-width:700px;
   margin:20px auto;
   color:#ddd;
-  line-height:1.8;
+  line-height:1.7;
 }
 
-/* BUTTON */
 .btn{
   display:inline-block;
   padding:14px 30px;
   background:linear-gradient(90deg,#ffb6c1,#f8c8dc);
   color:black;
   border-radius:30px;
-  margin-top:20px;
+  margin:10px;
   text-decoration:none;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 25px rgba(255,182,193,0.6);
+  font-weight:bold;
 }
 
 /* SECTION */
 .section{
-  padding:120px 20px;
+  padding:100px 20px;
   text-align:center;
 }
 
 .section h2{
   font-family:'Playfair Display';
   color:#ffb6c1;
-  margin-bottom:50px;
+  margin-bottom:40px;
 }
 
-/* SERVICES */
-.services{
+/* ABOUT */
+.about{
+  max-width:800px;
+  margin:auto;
+  color:#ddd;
+  line-height:1.8;
+}
+
+/* WHY */
+.cards{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:30px;
+  gap:20px;
 }
 
 .card{
-  width:260px;
-  padding:30px;
+  width:230px;
+  padding:20px;
   background:rgba(255,182,193,0.05);
-  border-radius:20px;
-  backdrop-filter:blur(10px);
-  transition:0.4s;
+  border-radius:15px;
   border:1px solid rgba(255,182,193,0.1);
 }
 
-.card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 20px 50px rgba(255,182,193,0.2);
+/* REVIEWS */
+.review{
+  max-width:600px;
+  margin:15px auto;
+  padding:15px;
+  background:rgba(255,182,193,0.08);
+  border-radius:10px;
+  font-style:italic;
+}
+
+/* OFFER */
+.offer{
+  background:linear-gradient(90deg,rgba(255,182,193,0.2),rgba(212,175,55,0.1));
+  padding:40px;
+  border-radius:20px;
+  max-width:700px;
+  margin:auto;
 }
 
 /* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  gap:15px;
 }
 
 .gallery img{
   width:100%;
   border-radius:15px;
-  transition:0.4s;
+  transition:0.3s;
 }
 
 .gallery img:hover{
   transform:scale(1.05);
-  box-shadow:0 15px 40px rgba(255,182,193,0.3);
 }
 
-/* CONTACT */
-.contact form{
-  max-width:450px;
+/* FORM */
+form{
+  max-width:400px;
   margin:auto;
   display:flex;
   flex-direction:column;
-  gap:15px;
+  gap:10px;
 }
 
 input,textarea{
-  padding:14px;
+  padding:12px;
   background:#111;
   border:1px solid #333;
   color:white;
@@ -167,19 +175,14 @@ input,textarea{
 }
 
 button{
+  padding:14px;
   background:linear-gradient(90deg,#ffb6c1,#f8c8dc);
   border:none;
-  padding:14px;
   border-radius:10px;
   font-weight:bold;
   cursor:pointer;
 }
 
-button:hover{
-  box-shadow:0 0 20px rgba(255,182,193,0.6);
-}
-
-/* FOOTER */
 footer{
   text-align:center;
   padding:30px;
@@ -194,103 +197,95 @@ footer{
 <nav>
   <h1>Art Of Nails by Prerna</h1>
   <div>
-    <a href="#services">Collection</a>
+    <a href="#about">About</a>
+    <a href="#why">Why Us</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Order</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div>
- <h2>Luxury Press-On Nails</h2>
+    <h2>Luxury Press-On Nails 💅</h2>
     <p>
-      Art Of Nails by Prerna is a custom press-on nail brand designed to bring salon-quality nails right to your doorstep.
-      Each set is handmade with love, creativity, and attention to detail—perfect for every mood, occasion, and style.
-      <br><br>
-      From minimal everyday designs to bold, trendy looks, we create nails that match your personality.
-      Our press-ons are reusable, affordable, and easy to apply—so you can switch your style anytime, anywhere.
-      <br><br>
-      ✨ Made with love <br>
-      💅 Custom sizes & designs <br>
-      📦 Delivered to door
+      Salon-quality nails at home — starting at just ₹299
     </p>
-    <a href="#contact" class="btn">Order Now</a>
+
+    <a href="#contact" class="btn">Shop Now</a>
+    <a href="#contact" class="btn">Order Custom Nails</a>
   </div>
 </section>
 
-  
-<section class="section" id="services">
-  <h2>Our Collection</h2>
-  <div class="services">
-    <div class="card"><h3>Minimal Nails</h3></div>
-    <div class="card"><h3>Bridal Luxury</h3></div>
-    <div class="card"><h3>Trendy Designs</h3></div>
-    <div class="card"><h3>Custom Sets</h3></div>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <h2>About Us</h2>
+  <div class="about">
+    At ArtofNails, we create affordable, reusable and trendy press-on nails designed to match your vibe.  
+    From everyday elegance to bold glam — we’ve got your nails covered 💖
   </div>
 </section>
 
+<!-- WHY -->
+<section class="section" id="why">
+  <h2>Why Choose Us</h2>
+  <div class="cards">
+
+    <div class="card">💅 Reusable & Long-lasting</div>
+    <div class="card">💸 Affordable (₹299+)</div>
+    <div class="card">🎨 Custom Designs</div>
+    <div class="card">🚚 PAN India Delivery</div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section">
+  <h2>Customer Reviews</h2>
+
+  <div class="review">“So pretty 😭💅 loved it!”</div>
+  <div class="review">“Perfect for my first nails experience”</div>
+  <div class="review">“Quality is amazing for this price!”</div>
+
+</section>
+
+<!-- OFFER -->
+<section class="section">
+  <h2>🎁 Special Offers</h2>
+
+  <div class="offer">
+    🎉 Student Offer: ₹100 OFF on First Order<br><br>
+    🎁 Free Nail Kit with Every Order
+  </div>
+</section>
+
+<!-- GALLERY -->
 <section class="section" id="gallery">
   <h2>Gallery</h2>
   <div class="gallery">
-    <img src="10.jpeg"> 
-    <img src="2.jpeg"> 
-    <img src="6.jpeg"> 
-    <img src="7.jpeg"> 
-    <img src="8.jpeg"> 
-    <img src="9.jpeg"> 
-    <img src="5.jpeg"> 
-    <img src="11.jpeg"> 
-    <img src="1.jpeg"> 
+    <img src="1.jpeg">
+    <img src="2.jpeg">
     <img src="3.jpeg">
     <img src="4.jpeg">
+    <img src="5.jpeg">
+    <img src="6.jpeg">
   </div>
 </section>
 
-<section class="section contact" id="contact">
+<!-- ORDER -->
+<section class="section" id="contact">
   <h2>Place Your Order</h2>
 
   <form id="orderForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="text" id="whatsapp" placeholder="WhatsApp Number" required>
-    <textarea id="design" placeholder="Describe your design" required></textarea>
+    <input type="text" placeholder="Your Name" required>
+    <input type="text" placeholder="WhatsApp Number" required>
+    <textarea placeholder="Your Design Idea" required></textarea>
     <button type="submit">Order Now</button>
   </form>
 </section>
 
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycby0ciEHP0VVbxzcGOAmqLKjzzMk9ARP7Pztl7nMSGq1C94yBaT0YKehYldfivsq_lZn/exec";
-
-const form = document.getElementById("orderForm");
-
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const data = {
-    name: document.getElementById("name").value,
-    whatsapp: document.getElementById("whatsapp").value,
-    design: document.getElementById("design").value
-  };
-
-  fetch(scriptURL, {
-    method: "POST",
-    mode: "no-cors", // IMPORTANT FIX
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(() => {
-    alert("✨ Order placed successfully! We’ll contact you soon.");
-    form.reset();
-  })
-  .catch(() => {
-    alert("❌ Error submitting form");
-  });
-});
-</script>
-
 <footer>
-  <p>Email: artofnails4@gmail.com</p>
+  Email: artofnails4@gmail.com
 </footer>
 
 </body>
