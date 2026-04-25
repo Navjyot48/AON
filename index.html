@@ -43,11 +43,6 @@ nav a{
   color:#eee;
   margin-left:30px;
   text-decoration:none;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:#ffb6c1;
 }
 
 /* HERO */
@@ -65,50 +60,31 @@ nav a:hover{
 }
 
 .hero h2{
-  font-size:3.5rem;
+  font-size:3rem;
   font-family:'Playfair Display';
-  background:linear-gradient(90deg,#ffb6c1,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.hero p{
-  max-width:600px;
-  margin:20px auto;
-  color:#ddd;
-  line-height:1.8;
 }
 
 /* BUTTON */
 .btn{
-  display:inline-block;
-  padding:14px 30px;
-  background:linear-gradient(90deg,#ffb6c1,#f8c8dc);
+  padding:12px 25px;
+  background:#ffb6c1;
   color:black;
-  border-radius:30px;
-  margin-top:20px;
+  border-radius:25px;
   text-decoration:none;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 25px rgba(255,182,193,0.6);
 }
 
 /* SECTION */
 .section{
-  padding:120px 20px;
+  padding:100px 20px;
   text-align:center;
 }
 
 .section h2{
-  font-family:'Playfair Display';
   color:#ffb6c1;
-  margin-bottom:50px;
+  margin-bottom:40px;
 }
 
-/* SERVICES */
+/* PRODUCTS */
 .services{
   display:flex;
   flex-wrap:wrap;
@@ -118,17 +94,32 @@ nav a:hover{
 
 .card{
   width:260px;
-  padding:30px;
+  padding:20px;
   background:rgba(255,182,193,0.05);
   border-radius:20px;
-  backdrop-filter:blur(10px);
-  transition:0.4s;
-  border:1px solid rgba(255,182,193,0.1);
 }
 
-.card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 20px 50px rgba(255,182,193,0.2);
+.card img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+.card button{
+  margin-top:10px;
+  padding:10px;
+  width:100%;
+  border:none;
+  border-radius:20px;
+  background:#ffb6c1;
+  cursor:pointer;
+}
+
+/* CART */
+#cart{
+  max-width:400px;
+  margin:20px auto;
+  text-align:left;
 }
 
 /* GALLERY */
@@ -140,43 +131,7 @@ nav a:hover{
 
 .gallery img{
   width:100%;
-  border-radius:15px;
-  transition:0.4s;
-}
-
-.gallery img:hover{
-  transform:scale(1.05);
-  box-shadow:0 15px 40px rgba(255,182,193,0.3);
-}
-
-/* CONTACT */
-.contact form{
-  max-width:450px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-}
-
-input,textarea{
-  padding:14px;
-  background:#111;
-  border:1px solid #333;
-  color:white;
   border-radius:10px;
-}
-
-button{
-  background:linear-gradient(90deg,#ffb6c1,#f8c8dc);
-  border:none;
-  padding:14px;
-  border-radius:10px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:hover{
-  box-shadow:0 0 20px rgba(255,182,193,0.6);
 }
 
 /* FOOTER */
@@ -192,101 +147,128 @@ footer{
 <body>
 
 <nav>
-  <h1>Art Of Nails by Prerna</h1>
+  <h1>Art Of Nails</h1>
   <div>
-    <a href="#services">Collection</a>
+    <a href="#shop">Shop</a>
+    <a href="#cart-section">Cart</a>
     <a href="#gallery">Gallery</a>
-    <a href="#contact">Order</a>
   </div>
 </nav>
 
 <section class="hero">
   <div>
- <h2>Luxury Press-On Nails</h2>
-    <p>
-      Art Of Nails by Prerna is a custom press-on nail brand designed to bring salon-quality nails right to your doorstep.
-      Each set is handmade with love, creativity, and attention to detail—perfect for every mood, occasion, and style.
-      <br><br>
-      From minimal everyday designs to bold, trendy looks, we create nails that match your personality.
-      Our press-ons are reusable, affordable, and easy to apply—so you can switch your style anytime, anywhere.
-      <br><br>
-      ✨ Made with love <br>
-      💅 Custom sizes & designs <br>
-      📦 Delivered to door
-    </p>
-    <a href="#contact" class="btn">Order Now</a>
+    <h2>Luxury Press-On Nails</h2>
+    <br>
+    <a href="#shop" class="btn">Shop Now</a>
   </div>
 </section>
 
-  
-<section class="section" id="services">
-  <h2>Our Collection</h2>
+<!-- SHOP -->
+<section class="section" id="shop">
+  <h2>Shop Nails</h2>
   <div class="services">
-    <div class="card"><h3>Minimal Nails</h3></div>
-    <div class="card"><h3>Bridal Luxury</h3></div>
-    <div class="card"><h3>Trendy Designs</h3></div>
-    <div class="card"><h3>Custom Sets</h3></div>
+
+    <div class="card">
+      <img src="1.jpeg">
+      <h3>Minimal Nails</h3>
+      <p>₹499</p>
+      <button onclick="addToCart('Minimal Nails',499)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="2.jpeg">
+      <h3>Bridal Luxury</h3>
+      <p>₹1299</p>
+      <button onclick="addToCart('Bridal Luxury',1299)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="3.jpeg">
+      <h3>Trendy Designs</h3>
+      <p>₹799</p>
+      <button onclick="addToCart('Trendy Designs',799)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="4.jpeg">
+      <h3>Custom Set</h3>
+      <p>₹999</p>
+      <button onclick="addToCart('Custom Set',999)">Add to Cart</button>
+    </div>
+
   </div>
 </section>
 
+<!-- CART -->
+<section class="section" id="cart-section">
+  <h2>Your Cart</h2>
+  <div id="cart"></div>
+  <h3 id="total"></h3>
+  <button onclick="checkout()">Checkout on WhatsApp</button>
+</section>
+
+<!-- GALLERY -->
 <section class="section" id="gallery">
   <h2>Gallery</h2>
   <div class="gallery">
-    <img src="10.jpeg"> 
-    <img src="2.jpeg"> 
-    <img src="6.jpeg"> 
-    <img src="7.jpeg"> 
-    <img src="8.jpeg"> 
-    <img src="9.jpeg"> 
-    <img src="5.jpeg"> 
-    <img src="11.jpeg"> 
-    <img src="1.jpeg"> 
-    <img src="3.jpeg">
-    <img src="4.jpeg">
+    <img src="5.jpeg">
+    <img src="6.jpeg">
+    <img src="7.jpeg">
+    <img src="8.jpeg">
   </div>
 </section>
 
-<section class="section contact" id="contact">
-  <h2>Place Your Order</h2>
-
-  <form id="orderForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="text" id="whatsapp" placeholder="WhatsApp Number" required>
-    <textarea id="design" placeholder="Describe your design" required></textarea>
-    <button type="submit">Order Now</button>
-  </form>
-</section>
-
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycby0ciEHP0VVbxzcGOAmqLKjzzMk9ARP7Pztl7nMSGq1C94yBaT0YKehYldfivsq_lZn/exec";
 
-const form = document.getElementById("orderForm");
+let cart = [];
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
+function addToCart(name, price){
+  cart.push({name, price});
+  updateCart();
+}
 
-  const data = {
-    name: document.getElementById("name").value,
-    whatsapp: document.getElementById("whatsapp").value,
-    design: document.getElementById("design").value
-  };
+function updateCart(){
+  let cartHTML = "";
+  let total = 0;
 
-  fetch(scriptURL, {
-    method: "POST",
-    mode: "no-cors", // IMPORTANT FIX
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(() => {
-    alert("✨ Order placed successfully! We’ll contact you soon.");
-    form.reset();
-  })
-  .catch(() => {
-    alert("❌ Error submitting form");
+  cart.forEach((item, index)=>{
+    total += item.price;
+    cartHTML += `
+      <p>${item.name} - ₹${item.price} 
+      <button onclick="removeItem(${index})">❌</button></p>
+    `;
   });
-});
+
+  document.getElementById("cart").innerHTML = cartHTML;
+  document.getElementById("total").innerText = "Total: ₹" + total;
+}
+
+function removeItem(index){
+  cart.splice(index,1);
+  updateCart();
+}
+
+function checkout(){
+
+  if(cart.length === 0){
+    alert("Cart is empty!");
+    return;
+  }
+
+  let message = "Hello, I want to order:%0A";
+
+  cart.forEach(item=>{
+    message += `${item.name} - ₹${item.price}%0A`;
+  });
+
+  const total = cart.reduce((sum,item)=>sum+item.price,0);
+  message += `%0ATotal: ₹${total}`;
+
+  const phone = "91XXXXXXXXXX"; // PUT YOUR NUMBER
+
+  window.open(`https://wa.me/${phone}?text=${message}`,"_blank");
+}
+
 </script>
 
 <footer>
